@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charpentier Artisan dans le Var | Charpente, Ossature Bois, Extension</title>
+<meta name="description" content="Artisan charpentier dans le Var (83). Charpente traditionnelle, ossature bois, extension bois, terrasse & pergola. Devis gratuit à Toulon, Fréjus, Draguignan, Hyères.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bois: #8B5E3C;
+    --bois-fonce: #4A2F1A;
+    --bois-clair: #C4956A;
+    --creme: #F5EFE6;
+    --beige: #E8DDD0;
+    --blanc: #FDFAF7;
+    --texte: #2C1F14;
+    --texte-leger: #6B5040;
+    --vert: #4A6741;
+    --vert-clair: #7A9E75;
+    --or: #C9A84C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Raleway', sans-serif;
+    background: var(--blanc);
+    color: var(--texte);
+    overflow-x: hidden;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(253,250,247,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--beige);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px;
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--bois-fonce);
+    text-decoration: none;
+    line-height: 1.1;
+  }
+  .logo span { display: block; font-size: 0.7rem; font-family: 'Raleway', sans-serif; font-weight: 400; letter-spacing: 0.15em; color: var(--texte-leger); text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--texte-leger); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--bois); }
+  .nav-cta {
+    background: var(--bois);
+    color: var(--blanc) !important;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    font-weight: 600 !important;
+  }
+  .nav-cta:hover { background: var(--bois-fonce); color: var(--blanc) !important; }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background: var(--bois-fonce);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-wood-bg {
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(
+        92deg,
+        transparent 0px, transparent 40px,
+        rgba(139,94,60,0.06) 40px, rgba(139,94,60,0.06) 42px
+      ),
+      repeating-linear-gradient(
+        88deg,
+        transparent 0px, transparent 80px,
+        rgba(74,47,26,0.04) 80px, rgba(74,47,26,0.04) 82px
+      );
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 10rem 8% 6rem;
+    position: relative; z-index: 2;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--bois-clair); font-weight: 600;
+    margin-bottom: 1.5rem;
+    border-left: 2px solid var(--or);
+    padding-left: 0.8rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    color: var(--creme);
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em { font-style: italic; color: var(--bois-clair); }
+  .hero p {
+    font-size: 1.05rem; line-height: 1.8;
+    color: rgba(245,239,230,0.75);
+    max-width: 440px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--or);
+    color: var(--bois-fonce);
+    padding: 1rem 2rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700; font-size: 0.85rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; border: none; cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.25s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--creme); transform: translateY(-1px); }
+  .btn-outline {
+    border: 1px solid rgba(245,239,230,0.3);
+    color: var(--creme);
+    padding: 1rem 2rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500; font-size: 0.85rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; border-radius: 2px;
+    transition: all 0.25s;
+    display: inline-block;
+  }
+  .btn-outline:hover { background: rgba(245,239,230,0.08); }
+  .hero-right {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: center;
+    padding: 8rem 6% 6rem;
+  }
+  .hero-visual {
+    width: 100%;
+    max-width: 440px;
+    aspect-ratio: 4/5;
+    background: var(--bois);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: -20px 20px 60px rgba(0,0,0,0.4);
+  }
+  .hero-visual-inner {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    background:
+      repeating-linear-gradient(
+        0deg,
+        rgba(74,47,26,0.3) 0px, rgba(74,47,26,0.3) 3px,
+        transparent 3px, transparent 35px
+      ),
+      linear-gradient(160deg, #6B3D1E 0%, #8B5E3C 50%, #4A2F1A 100%);
+  }
+  .hero-visual svg { opacity: 0.9; }
+  .hero-visual-label {
+    margin-top: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: var(--creme);
+    text-align: center; font-style: italic;
+  }
+  .hero-stats {
+    position: absolute; bottom: 2rem; left: 0; right: 0;
+    display: flex; justify-content: center; gap: 3rem; z-index: 2;
+    padding: 0 5%;
+  }
+  .stat { text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--or); font-weight: 700; }
+  .stat-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(245,239,230,0.6); font-weight: 500; }
+
+  /* ===== SECTION COMMUNE ===== */
+  section { padding: 6rem 5%; }
+  .section-tag {
+    font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--bois); font-weight: 600;
+    border-left: 2px solid var(--or);
+    padding-left: 0.8rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    color: var(--bois-fonce);
+    margin-bottom: 1rem;
+  }
+  .lead {
+    font-size: 1.05rem; line-height: 1.8; color: var(--texte-leger);
+    max-width: 600px; font-weight: 300;
+  }
+
+  /* ===== SERVICES ===== */
+  .services { background: var(--creme); }
+  .services-intro { max-width: 700px; margin-bottom: 4rem; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5px;
+    background: var(--beige);
+  }
+  .service-card {
+    background: var(--blanc);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--or);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .service-card:hover { background: var(--bois-fonce); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover h3, .service-card:hover p { color: var(--creme); }
+  .service-icon {
+    width: 48px; height: 48px; margin-bottom: 1.5rem;
+    color: var(--bois);
+    transition: color 0.3s;
+  }
+  .service-card:hover .service-icon { color: var(--or); }
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; margin-bottom: 0.8rem;
+    color: var(--bois-fonce); transition: color 0.3s;
+  }
+  .service-card p { font-size: 0.9rem; line-height: 1.7; color: var(--texte-leger); transition: color 0.3s; }
+
+  /* ===== POURQUOI ===== */
+  .pourquoi {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; padding: 0;
+  }
+  .pourquoi-left {
+    background: var(--bois-fonce);
+    padding: 6rem 8%;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .pourquoi-left .section-tag { color: var(--bois-clair); }
+  .pourquoi-left h2 { color: var(--creme); }
+  .pourquoi-left .lead { color: rgba(245,239,230,0.7); }
+  .atouts { margin-top: 3rem; display: flex; flex-direction: column; gap: 1.5rem; }
+  .atout { display: flex; gap: 1.2rem; align-items: flex-start; }
+  .atout-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700;
+    color: var(--or); line-height: 1;
+    min-width: 2.5rem;
+  }
+  .atout-text h4 { font-size: 0.95rem; font-weight: 600; color: var(--creme); margin-bottom: 0.3rem; }
+  .atout-text p { font-size: 0.85rem; color: rgba(245,239,230,0.6); line-height: 1.6; }
+  .pourquoi-right {
+    background: var(--beige);
+    padding: 6rem 8%;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .pourquoi-right h2 { color: var(--bois-fonce); margin-bottom: 2rem; }
+  .labels { display: flex; flex-direction: column; gap: 1rem; }
+  .label-item {
+    background: var(--blanc);
+    border: 1px solid var(--beige);
+    padding: 1.2rem 1.5rem;
+    border-radius: 2px;
+    display: flex; align-items: center; gap: 1rem;
+    font-size: 0.9rem; font-weight: 500; color: var(--bois-fonce);
+  }
+  .label-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--vert); flex-shrink: 0; }
+  .zone { margin-top: 2rem; }
+  .zone h4 { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--texte-leger); margin-bottom: 1rem; font-weight: 600; }
+  .zone-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .zone-tag {
+    background: var(--bois-fonce); color: var(--creme);
+    padding: 0.35rem 0.9rem; border-radius: 50px;
+    font-size: 0.78rem; font-weight: 500;
+  }
+
+  /* ===== RÉALISATIONS ===== */
+  .realisations { background: var(--blanc); }
+  .realisations-intro { margin-bottom: 3rem; }
+  .galerie {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 250px 250px;
+    gap: 6px;
+  }
+  .galerie-item {
+    background: var(--beige);
+    overflow: hidden; position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .galerie-item:first-child { grid-row: span 2; }
+  .galerie-item-inner {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 0.5rem;
+  }
+  .galerie-placeholder {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem; font-style: italic;
+    color: var(--texte-leger);
+    text-align: center; padding: 1rem;
+  }
+  .galerie-bg-1 { background: linear-gradient(135deg, #8B5E3C 0%, #4A2F1A 100%); }
+  .galerie-bg-2 { background: linear-gradient(135deg, #6B4226 0%, #8B5E3C 100%); }
+  .galerie-bg-3 { background: linear-gradient(135deg, #4A6741 0%, #3A5232 100%); }
+  .galerie-bg-4 { background: linear-gradient(135deg, #C4956A 0%, #8B5E3C 100%); }
+  .galerie-bg-5 { background: linear-gradient(135deg, #2C1F14 0%, #4A2F1A 100%); }
+  .galerie-bg-1 .galerie-placeholder, .galerie-bg-2 .galerie-placeholder,
+  .galerie-bg-3 .galerie-placeholder, .galerie-bg-4 .galerie-placeholder,
+  .galerie-bg-5 .galerie-placeholder { color: rgba(253,250,247,0.7); }
+  .galerie-note {
+    margin-top: 2rem; padding: 1.2rem 1.5rem;
+    background: var(--creme); border-left: 3px solid var(--or);
+    font-size: 0.88rem; color: var(--texte-leger); line-height: 1.6;
+  }
+
+  /* ===== TEMOIGNAGES ===== */
+  .temoignages { background: var(--creme); }
+  .temoignages-intro { margin-bottom: 3rem; }
+  .temoignages-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .temoignage {
+    background: var(--blanc);
+    padding: 2rem;
+    border-radius: 2px;
+    position: relative;
+  }
+  .temoignage::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; line-height: 0.7;
+    color: var(--or); opacity: 0.3;
+    position: absolute; top: 1rem; left: 1.5rem;
+  }
+  .temoignage p {
+    font-size: 0.95rem; line-height: 1.8;
+    color: var(--texte-leger); font-style: italic;
+    position: relative; z-index: 1; padding-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .temoignage-auteur { display: flex; align-items: center; gap: 0.8rem; }
+  .avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--bois);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 1rem;
+    color: var(--creme); font-weight: 700;
+  }
+  .auteur-info { font-size: 0.82rem; }
+  .auteur-nom { font-weight: 600; color: var(--bois-fonce); }
+  .auteur-ville { color: var(--texte-leger); }
+  .etoiles { color: var(--or); font-size: 0.8rem; letter-spacing: 0.1em; margin-bottom: 0.2rem; }
+
+  /* ===== DEVIS ===== */
+  .devis {
+    background: var(--bois-fonce);
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; align-items: center;
+    padding: 6rem 8%;
+  }
+  .devis-left .section-tag { color: var(--bois-clair); }
+  .devis-left h2 { color: var(--creme); margin-bottom: 1rem; }
+  .devis-left p { font-size: 1rem; color: rgba(245,239,230,0.65); line-height: 1.8; font-weight: 300; }
+  .devis-infos { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
+  .devis-info { display: flex; align-items: center; gap: 1rem; }
+  .devis-info-icon { width: 36px; height: 36px; background: rgba(201,168,76,0.15); border-radius: 2px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .devis-info-icon svg { color: var(--or); }
+  .devis-info-text { font-size: 0.9rem; color: rgba(245,239,230,0.8); }
+  .devis-info-text strong { display: block; color: var(--creme); font-weight: 600; }
+  form.devis-form {
+    background: var(--blanc);
+    padding: 2.5rem;
+    border-radius: 4px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .form-group { margin-bottom: 1rem; }
+  .form-group label {
+    display: block; font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--texte-leger); margin-bottom: 0.4rem;
+  }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 0.8rem 1rem;
+    border: 1px solid var(--beige);
+    background: var(--blanc); color: var(--texte);
+    font-family: 'Raleway', sans-serif; font-size: 0.9rem;
+    border-radius: 2px; outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--bois);
+  }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit {
+    width: 100%; padding: 1rem;
+    background: var(--bois);
+    color: var(--blanc); border: none;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; border-radius: 2px;
+    transition: background 0.25s;
+  }
+  .form-submit:hover { background: var(--bois-fonce); }
+  .form-note { font-size: 0.75rem; color: var(--texte-leger); text-align: center; margin-top: 0.8rem; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #1A0F08;
+    padding: 4rem 5% 2rem;
+    color: rgba(245,239,230,0.6);
+  }
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem; margin-bottom: 3rem;
+    border-bottom: 1px solid rgba(245,239,230,0.08);
+    padding-bottom: 3rem;
+  }
+  .footer-brand { }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; color: var(--creme);
+    margin-bottom: 1rem; display: block;
+  }
+  .footer-brand p { font-size: 0.85rem; line-height: 1.8; max-width: 280px; }
+  .footer-col h4 { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--creme); margin-bottom: 1.2rem; font-weight: 600; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-col ul li a, .footer-col ul li { font-size: 0.85rem; color: rgba(245,239,230,0.55); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: var(--bois-clair); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.78rem;
+  }
+  .footer-bottom a { color: rgba(245,239,230,0.4); text-decoration: none; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 8rem 6% 4rem; }
+    nav { padding: 0 4%; }
+    .nav-links { display: none; }
+    .pourquoi { grid-template-columns: 1fr; }
+    .devis { grid-template-columns: 1fr; gap: 3rem; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .galerie { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .galerie-item:first-child { grid-row: auto; grid-column: span 2; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 4rem 5%; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * {
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.25s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.4s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.55s; }
+
+  /* ===== CONFIRMATION ===== */
+  .form-confirm {
+    display: none; text-align: center; padding: 2rem;
+  }
+  .form-confirm.active { display: block; }
+  .form-confirm h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--bois-fonce); margin-bottom: 0.8rem; }
+  .form-confirm p { font-size: 0.9rem; color: var(--texte-leger); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#accueil" class="logo">
+    Artisan Charpentier
+    <span>Var · Provence</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#realisations">Réalisations</a></li>
+    <li><a href="#pourquoi">À propos</a></li>
+    <li><a href="#devis" class="nav-cta">Devis gratuit</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-wood-bg"></div>
+  <div class="hero-left">
+    <span class="hero-tag">Artisan charpentier · Var (83)</span>
+    <h1>L'art de la <em>charpente</em> dans le Var</h1>
+    <p>Charpente traditionnelle, ossature bois, extension et terrasse — un savoir-faire artisanal au service de vos projets dans tout le département.</p>
+    <div class="hero-btns">
+      <a href="#devis" class="btn-primary">Demander un devis gratuit</a>
+      <a href="#services" class="btn-outline">Nos services</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="hero-visual-inner">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <path d="M10 55 L40 15 L70 55 Z" stroke="rgba(245,239,230,0.6)" stroke-width="2" fill="none"/>
+          <path d="M18 55 L18 68 M62 55 L62 68" stroke="rgba(245,239,230,0.4)" stroke-width="2"/>
+          <path d="M25 55 L55 55" stroke="rgba(201,168,76,0.6)" stroke-width="2.5"/>
+          <path d="M40 15 L40 55" stroke="rgba(245,239,230,0.3)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <path d="M28 37 L52 37" stroke="rgba(245,239,230,0.25)" stroke-width="1.5"/>
+        </svg>
+        <div class="hero-visual-label">Charpente<br>traditionnelle</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Ans d'expérience</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">200+</div>
+      <div class="stat-label">Chantiers réalisés</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Artisan local</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-intro">
+    <span class="section-tag">Nos prestations</span>
+    <h2>Ce que nous réalisons pour vous</h2>
+    <p class="lead">Du projet à la livraison, nous intervenons sur tous types de travaux de charpente et d'aménagement bois dans le Var.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M6 38 L24 10 L42 38 Z"/>
+        <path d="M14 38 L14 44 M34 38 L34 44"/>
+        <path d="M18 27 L30 27"/>
+      </svg>
+      <h3>Charpente traditionnelle</h3>
+      <p>Réalisation de charpentes en bois massif selon les règles de l'art. Maisons neuves, extensions, bâtiments agricoles — chaque structure est taillée sur mesure.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="8" y="12" width="32" height="28" rx="1"/>
+        <path d="M8 20 L40 20 M20 12 L20 40"/>
+        <path d="M8 12 L20 4 L40 12"/>
+      </svg>
+      <h3>Ossature bois</h3>
+      <p>Construction d'ossatures bois pour maisons individuelles, chalets et annexes. Une technique moderne, écologique et rapide à mettre en œuvre.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M6 34 L42 34 M10 34 L10 14 L24 6 L38 14 L38 34"/>
+        <path d="M6 14 L42 14"/>
+        <circle cx="24" cy="20" r="4"/>
+      </svg>
+      <h3>Rénovation & restauration</h3>
+      <p>Remplacement de charpente vétuste, traitement des bois, renforcement de structures. Nous redonnons vie à votre toiture avec soin et expertise.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="6" y="18" width="20" height="24"/>
+        <rect x="26" y="10" width="16" height="32"/>
+        <path d="M6 18 L16 8 L36 8 L42 16"/>
+      </svg>
+      <h3>Extension bois</h3>
+      <p>Agrandissez votre maison avec une extension en bois harmonieuse. Conception sur-mesure pour s'intégrer parfaitement à votre existant.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M6 28 L42 28 M6 28 L6 36 M42 28 L42 36"/>
+        <path d="M12 28 L12 16 M24 28 L24 16 M36 28 L36 16"/>
+        <path d="M12 16 L36 16"/>
+        <path d="M6 36 L42 36"/>
+      </svg>
+      <h3>Terrasse & pergola</h3>
+      <p>Création de terrasses bois, pergolas et abris de jardin. Profitez pleinement du soleil varois dans un espace extérieur personnalisé et durable.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M8 40 L40 40 M8 40 L8 20 L24 8 L40 20 L40 40"/>
+        <path d="M16 40 L16 28 L24 22 L32 28 L32 40"/>
+        <path d="M24 8 L24 22"/>
+      </svg>
+      <h3>Devis & conseil</h3>
+      <p>Chaque projet commence par un échange et une visite sur place. Devis gratuit et détaillé, conseils personnalisés selon vos besoins et votre budget.</p>
+    </div>
+  </div>
+</section>
+
+<!-- POURQUOI -->
+<div class="pourquoi" id="pourquoi">
+  <div class="pourquoi-left">
+    <span class="section-tag">Notre engagement</span>
+    <h2>Pourquoi nous choisir ?</h2>
+    <p class="lead">Artisan indépendant basé dans le Var, je m'investis personnellement dans chaque chantier — de la conception à la dernière tuile.</p>
+    <div class="atouts">
+      <div class="atout">
+        <div class="atout-num">01</div>
+        <div class="atout-text">
+          <h4>Savoir-faire artisanal</h4>
+          <p>Plus de 15 ans d'expérience dans la charpente bois, avec une approche minutieuse et des finitions soignées.</p>
+        </div>
+      </div>
+      <div class="atout">
+        <div class="atout-num">02</div>
+        <div class="atout-text">
+          <h4>Interlocuteur unique</h4>
+          <p>Pas de sous-traitants — vous travaillez directement avec l'artisan du début à la fin du chantier.</p>
+        </div>
+      </div>
+      <div class="atout">
+        <div class="atout-num">03</div>
+        <div class="atout-text">
+          <h4>Matériaux locaux & durables</h4>
+          <p>Bois sélectionnés chez des fournisseurs de confiance, traitement naturel et respect des normes en vigueur.</p>
+        </div>
+      </div>
+      <div class="atout">
+        <div class="atout-num">04</div>
+        <div class="atout-text">
+          <h4>Respect des délais et du budget</h4>
+          <p>Devis transparent, planning respecté. Pas de mauvaises surprises en cours de chantier.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pourquoi-right">
+    <span class="section-tag">Garanties & labels</span>
+    <h2>Un artisan de confiance</h2>
+    <div class="labels">
+      <div class="label-item"><span class="label-dot"></span> Artisan qualifié — Chambre des Métiers du Var</div>
+      <div class="label-item"><span class="label-dot"></span> Assurance décennale en vigueur</div>
+      <div class="label-item"><span class="label-dot"></span> Garantie parfait achèvement</div>
+      <div class="label-item"><span class="label-dot"></span> Devis gratuit et sans engagement</div>
+      <div class="label-item"><span class="label-dot"></span> Travaux conformes DTU 31.1</div>
+    </div>
+    <div class="zone">
+      <h4>Zone d'intervention</h4>
+      <div class="zone-tags">
+        <span class="zone-tag">Toulon</span>
+        <span class="zone-tag">Fréjus</span>
+        <span class="zone-tag">Draguignan</span>
+        <span class="zone-tag">Hyères</span>
+        <span class="zone-tag">Saint-Raphaël</span>
+        <span class="zone-tag">Brignoles</span>
+        <span class="zone-tag">La Seyne</span>
+        <span class="zone-tag">Sainte-Maxime</span>
+        <span class="zone-tag">Var (83)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RÉALISATIONS -->
+<section class="realisations" id="realisations">
+  <div class="realisations-intro">
+    <span class="section-tag">Nos réalisations</span>
+    <h2>Quelques chantiers récents</h2>
+    <p class="lead">Chaque projet est unique. Voici un aperçu de nos dernières réalisations dans le Var.</p>
+  </div>
+  <div class="galerie">
+    <div class="galerie-item galerie-bg-1">
+      <div class="galerie-item-inner">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="rgba(245,239,230,0.5)" stroke-width="1.5">
+          <path d="M6 38 L24 10 L42 38 Z"/>
+          <path d="M14 38 L14 44 M34 38 L34 44"/>
+        </svg>
+        <div class="galerie-placeholder">Charpente traditionnelle<br>Toulon · 2024</div>
+      </div>
+    </div>
+    <div class="galerie-item galerie-bg-2">
+      <div class="galerie-item-inner">
+        <div class="galerie-placeholder">Ossature bois<br>Fréjus · 2024</div>
+      </div>
+    </div>
+    <div class="galerie-item galerie-bg-3">
+      <div class="galerie-item-inner">
+        <div class="galerie-placeholder">Pergola bois<br>Hyères · 2023</div>
+      </div>
+    </div>
+    <div class="galerie-item galerie-bg-4">
+      <div class="galerie-item-inner">
+        <div class="galerie-placeholder">Extension bois<br>Draguignan · 2023</div>
+      </div>
+    </div>
+    <div class="galerie-item galerie-bg-5">
+      <div class="galerie-item-inner">
+        <div class="galerie-placeholder">Rénovation charpente<br>Saint-Raphaël · 2023</div>
+      </div>
+    </div>
+  </div>
+  <div class="galerie-note">
+    📸 <strong>Conseil :</strong> Remplacez ces vignettes par vos vraies photos de chantier. Les photos authentiques augmentent de 40 % les demandes de devis. Prenez-les en fin de journée pour la lumière dorée du Var !
+  </div>
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section class="temoignages">
+  <div class="temoignages-intro">
+    <span class="section-tag">Avis clients</span>
+    <h2>Ce que disent nos clients</h2>
+  </div>
+  <div class="temoignages-grid">
+    <div class="temoignage">
+      <div class="etoiles">★★★★★</div>
+      <p>Travail remarquable sur notre charpente à Toulon. Chantier propre, délais respectés, et le résultat est magnifique. Je recommande vivement cet artisan sérieux et passionné par son métier.</p>
+      <div class="temoignage-auteur">
+        <div class="avatar">M</div>
+        <div class="auteur-info">
+          <div class="auteur-nom">Michel R.</div>
+          <div class="auteur-ville">Toulon · Charpente traditionnelle</div>
+        </div>
+      </div>
+    </div>
+    <div class="temoignage">
+      <div class="etoiles">★★★★★</div>
+      <p>Notre extension bois est une réussite totale. L'artisan a su s'adapter à nos contraintes et proposer des solutions créatives. Le bois est de très bonne qualité, les finitions parfaites.</p>
+      <div class="temoignage-auteur">
+        <div class="avatar">S</div>
+        <div class="auteur-info">
+          <div class="auteur-nom">Sophie & Luc D.</div>
+          <div class="auteur-ville">Fréjus · Extension bois</div>
+        </div>
+      </div>
+    </div>
+    <div class="temoignage">
+      <div class="etoiles">★★★★★</div>
+      <p>Pergola installée en deux jours, exactement comme sur les plans. Devis clair, prix honnête, artisan disponible et à l'écoute. Notre terrasse est maintenant notre coin préféré de la maison !</p>
+      <div class="temoignage-auteur">
+        <div class="avatar">A</div>
+        <div class="auteur-info">
+          <div class="auteur-nom">Anne-Marie T.</div>
+          <div class="auteur-ville">Hyères · Terrasse & pergola</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEVIS -->
+<div class="devis" id="devis">
+  <div class="devis-left">
+    <span class="section-tag">Contact</span>
+    <h2>Parlons de votre projet</h2>
+    <p>Remplissez le formulaire ou appelez-nous directement. Nous vous répondons sous 24h et nous nous déplaçons gratuitement pour établir votre devis.</p>
+    <div class="devis-infos">
+      <div class="devis-info">
+        <div class="devis-info-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
+          </svg>
+        </div>
+        <div class="devis-info-text">
+          <strong>Téléphone</strong>
+          +33 (0)6 XX XX XX XX
+        </div>
+      </div>
+      <div class="devis-info">
+        <div class="devis-info-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div class="devis-info-text">
+          <strong>Zone d'intervention</strong>
+          Tout le département du Var (83)
+        </div>
+      </div>
+      <div class="devis-info">
+        <div class="devis-info-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div class="devis-info-text">
+          <strong>Réponse sous 24h</strong>
+          Du lundi au vendredi
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <form class="devis-form" id="devisForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Prénom & nom</label>
+          <input type="text" placeholder="Jean Dupont" required>
+        </div>
+        <div class="form-group">
+          <label>Téléphone</label>
+          <input type="tel" placeholder="06 XX XX XX XX" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="votre@email.fr">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Commune</label>
+          <input type="text" placeholder="Toulon, Fréjus…">
+        </div>
+        <div class="form-group">
+          <label>Type de projet</label>
+          <select>
+            <option value="">Choisir…</option>
+            <option>Charpente traditionnelle</option>
+            <option>Ossature bois</option>
+            <option>Rénovation charpente</option>
+            <option>Extension bois</option>
+            <option>Terrasse & pergola</option>
+            <option>Autre</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Décrivez votre projet</label>
+        <textarea placeholder="Surface approximative, type de maison, délais souhaités…"></textarea>
+      </div>
+      <button type="submit" class="form-submit">Envoyer ma demande de devis</button>
+      <p class="form-note">Devis gratuit · Sans engagement · Réponse sous 24h</p>
+    </form>
+    <div class="form-confirm" id="formConfirm">
+      <h3>Merci pour votre message !</h3>
+      <p>Nous reviendrons vers vous dans les 24 heures pour convenir d'une visite sur chantier.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-logo">Artisan Charpentier · Var</span>
+      <p>Artisan charpentier indépendant dans le Var, intervenant sur tous vos projets de charpente bois, ossature, extension et terrasse dans tout le département.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Charpente traditionnelle</a></li>
+        <li><a href="#services">Ossature bois</a></li>
+        <li><a href="#services">Rénovation charpente</a></li>
+        <li><a href="#services">Extension bois</a></li>
+        <li><a href="#services">Terrasse & pergola</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Villes</h4>
+      <ul>
+        <li>Toulon</li>
+        <li>Fréjus</li>
+        <li>Draguignan</li>
+        <li>Hyères</li>
+        <li>Saint-Raphaël</li>
+        <li>Brignoles</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Artisan Charpentier Var — Tous droits réservés</span>
+    <a href="#">Mentions légales</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('devisForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('formConfirm').classList.add('active');
+  });
+
+  // Smooth active nav on scroll
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--bois)' : '';
+    });
+  });
+</script>
+</body>
+</html>
